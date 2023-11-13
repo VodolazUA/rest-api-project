@@ -4,7 +4,7 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 
-# tttt
+# tttt 111
 
 from db import db
 from blocklist import BLOCKLIST
