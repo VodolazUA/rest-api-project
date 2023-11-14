@@ -3,6 +3,7 @@ from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
+from dotenv import load_dotenv
 
 # tttt 111 222
 
@@ -17,8 +18,9 @@ from resources.user import blp as UserBlueprint
 
 
 def create_app(db_url=None):
-    
+
     app = Flask(__name__)
+    load_dotenv()
     app.config["API_TITLE"] = "Stores REST API"
     app.config["API_VERSION"] = "v1"
     app.config["OPENAPI_VERSION"] = "3.0.3"
@@ -34,7 +36,7 @@ def create_app(db_url=None):
     
     db.init_app(app)
 
-    migrat = Migrate(app, db)
+    migrate = Migrate(app, db)
 
     api = Api(app)
 
